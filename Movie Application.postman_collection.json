@@ -1,0 +1,438 @@
+{
+	"info": {
+		"_postman_id": "e82356dd-3509-49d2-bf5d-891633e815e5",
+		"name": "Movie Application",
+		"description": "This is a collection for business-model \"director-movies\" (one to many)  \nThere is realized CRUD operations for two entities.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33064693"
+	},
+	"item": [
+		{
+			"name": "Get director",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/app/directors/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"directors",
+						"1"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "Post director",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"James Francis Cameron\",\n    \"description\" : \"James Francis Cameron (born August 16, 1954) is a Canadian filmmaker. He is a major figure in the post-New Hollywood era. He often uses novel technologies with a classical filmmaking style. \"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/app/directors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"directors"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "Update director",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful PUT request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"James Francis Cameron\",\n    \"description\" : \"James Francis Cameron CC (born August 16, 1954) is a Canadian filmmaker. He is a major figure in the post-New Hollywood era. He often uses novel technologies with a classical filmmaking style. He first gained recognition for writing and directing The Terminator (1984) and found further success with Aliens (1986), The Abyss (1989), Terminator 2: Judgment Day (1991), True Lies (1994), as well as Avatar (2009) and its sequels. He directed, wrote, co-produced, and co-edited Titanic (1997), winning three Academy Awards for Best Picture, Best Director, and Best Film Editing. He is a recipient of various other industry accolades, and three of his films have been selected for preservation in the National Film Registry by the Library of Congress.\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/app/directors/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"directors",
+						"1"
+					]
+				},
+				"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete director",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful DELETE request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/app/directors/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"directors",
+						"1"
+					]
+				},
+				"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "Get movie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/app/movies/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"movies",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post movie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"Avatar\",\r\n    \"description\" : \"In 2154, Earth suffers from resource exhaustion and ecological collapse. The Resources Development Administration (RDA) mines the valuable mineral unobtanium on Pandora, a lush habitable moon orbiting a gas giant in the Alpha Centauri star system. Pandora, whose atmosphere is inhospitable to humans, is inhabited by the Na'vi, 10-foot-tall (3.0 m), blue-skinned, sapient humanoids that live in harmony with nature.\",\r\n    \"year\" : 2009,\r\n    \"genre\" : \"epic science fiction\",\r\n    \"directorId\" : 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/app/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update movie",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"Avatar\",\r\n    \"description\" : \"In 2154, Earth suffers from resource exhaustion and ecological collapse. The Resources Development Administration (RDA) mines the valuable mineral unobtanium on Pandora, a lush habitable moon orbiting a gas giant in the Alpha Centauri star system. Pandora, whose atmosphere is inhospitable to humans, is inhabited by the Na'vi, 10-foot-tall (3.0 m), blue-skinned, sapient humanoids that live in harmony with nature.To explore Pandora, genetically matched human scientists control Na'vi-human hybrids called avatars. Paraplegic former Marine Jake Sully is recruited by the RDA to replace his deceased identical twin, who had signed up to be an operator. Avatar Program head Dr. Grace Augustine considers Jake inadequate but accepts him as an operator. While escorting the avatars of Grace and Dr. Norm Spellman, Jake's avatar is attacked by Pandoran wildlife, and he flees into the forest, where he is rescued by the Na'vi princess Neytiri. Suspicious of Jake, she takes him to her clan. Neytiri's mother, Mo'at, the clan's spiritual leader, orders her daughter to initiate Jake into their society.\",\r\n    \"year\" : 2009,\r\n    \"genre\" : \"epic science fiction\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/app/movies/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"movies",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete movie",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/app/movies/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"movies",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get directors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/app/directors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"directors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/app/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post movies",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   { \"title\" : \"The Terminator\",\r\n    \"description\" : \"It stars Arnold Schwarzenegger as the Terminator, a cybernetic assassin sent back in time from 2029 to 1984 to kill Sarah Connor (Linda Hamilton), whose unborn son will one day save mankind from extinction by Skynet, a hostile artificial intelligence in a post-apocalyptic future. Kyle Reese (Michael Biehn) is a soldier sent back in time to protect Sarah. The screenplay is credited to Cameron and Hurd, while co-writer William Wisher Jr. received an additional dialogue credit.\",\r\n    \"year\" : 1984,\r\n    \"genre\" : \"science fiction action\",\r\n    \"directorId\" : 1\r\n   },\r\n   {\r\n     \"title\" : \"Aliens\",\r\n    \"description\" : \" It is the sequel to the 1979 science fiction horror film Alien, and the second film in the Alien franchise. Set in the far future, it stars Sigourney Weaver as Ellen Ripley, the sole survivor of an alien attack on her ship. When communications are lost with a human colony on the moon where her crew first saw the alien creatures, Ripley agrees to return to the site with a unit of Colonial Marines to investigate. Michael Biehn, Paul Reiser, Lance Henriksen, and Carrie Henn are featured in supporting roles.\",\r\n    \"year\" : 1986,\r\n    \"genre\" : \"science fiction action\",\r\n    \"directorId\" : 1\r\n   }\r\n    ]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/app/movies/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"movies",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post directors",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n\t\"name\": \"Steven Allan Spielberg\",\r\n    \"description\" : \"Neben seinem Debütfilm Duell (1971) gehören zu Spielbergs bekanntesten Filmen Der weiße Hai (1975), Unheimliche Begegnung der dritten Art (1977), E.T. – Der Außerirdische (1982), Jurassic Park (1993), Schindlers Liste (1993), Der Soldat James Ryan (1998), Catch Me If You Can (2002), Lincoln (2012), Ready Player One (2018) und die ersten vier der fünfteiligen Indiana-Jones-Reihe (1981–2023). Als Produzent war Spielberg u. a. für die Filmreihen Zurück in die Zukunft, Men in Black und Transformers verantwortlich.\"\r\n    },\r\n    {\r\n    \"name\": \"Quentin Jerome Tarantino\",\r\n    \"description\" : \"Quentin Jerome Tarantino (/ˌtærənˈtiːnoʊ/; born March 27, 1963) is an American filmmaker and actor. His films are characterized by stylized violence, extended dialogue often with profanity, and references to popular culture. Tarantino's work has been subject to criticism, such as the depictions of violence and frequent inclusion of racial slurs. During Tarantino's career, his films have garnered a cult following; as well as critical and commercial success, he has been considered the single most influential director of his generation. He is the recipient of two Academy Awards, two BAFTA Awards, and four Golden Globe Awards.\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/app/directors/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"directors",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get movies by director",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/app/movies/by/director/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"movies",
+						"by",
+						"director",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}

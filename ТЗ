@@ -1,0 +1,45 @@
+                       Director-Movies Business Model
+The core business model revolves around the relationship between Directors and the Movies they create.
+Each Director can be associated with one or more Movies, while each Movie is directed by a single Director.
+
+                      Entity Definitions:
+        Director
+           * Unique identifier (Long)
+           * Name (varchar[255])
+           * Description (some information about director) (TEXT)
+           * List of movies
+        Movie
+           * Unique identifier (Long)
+           * Title (varchar[255])
+           * Release year (1895 < n <= current year) (Integer)
+           * Genre (varchar[255])
+           * Plot summary
+
+                       Relationships:
+One-to-Many Relationship: Director-to-Movies
+A Director can be associated with one or more Movies.
+A Movie can only be directed by a single Director.
+
+                        Key Business Rules:
+A Director must be added to the system before any Movies they have directed can be added.
+When a new Movie is added, the associated Director must be selected from the existing list of Directors.
+When a Director is removed, all Movies associated with that Director will also be removed.
+For the director, you can only update the name and description (not the list of movies).
+To add or remove a film from the director, you must send a separate request to remove/add the movie.
+
+                        User Interactions:
+       Director Management
+          * Add a new Director
+          * Add new Directors
+          * View a list of all Directors
+          * View a Director by Id
+          * Edit an existing Director's information
+          * Remove a Director by id (and all associated Movies)
+       Movie Management
+          * Add a new Movie and associate it with an existing Director
+          * Add new Movies and associate they with an existing Director
+          * View a list of all Movies
+          * View a Movie by id
+          * View Movies by director
+          * Edit an existing Movie's information
+          * Remove a Movie by id
