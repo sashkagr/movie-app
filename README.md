@@ -1,7 +1,7 @@
 # Movie Application
 ## Project Description
 Description of the business model is in the technical specifications:
-[ТЗ](%D2%C7)
+[TS](TS)
 
 ## Requirements
 * The project utilizes Spring Boot, Maven, and PostgreSQL (any database can be connected). Database operations are performed using Hibernate. It is mandatory to create the ```application.yml``` file;
